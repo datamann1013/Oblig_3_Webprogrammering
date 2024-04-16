@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Kinobilletter</title>
+    <script src="js.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="jumbotron text-center">
+        <h1>Bestilling av kinobilletter!</h1>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <p>Velg film:
+                <select id = "filmselector" required> <!--required makes it mandatory to select a film-->
+                    <!--Options are defined in the html file-->
+                    <option disabled selected hidden>Velg film her</option>
+                    <option>Babyen 1</option>
+                    <option>Dune 2</option>
+                    <option>Spooderman: Always home</option>
+                    <option>DC champions!</option>
+                </select>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">
+            <p>
+                Antall
+                <input type="number" id="amount" style="width: 3em" min="0" max="99" required>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">
+        <table>
+                <tr><td>Fornavn</td><td><input type="text" id="firstName" required></td></tr>
+                <tr><td>Etternavn</td><td><input type="text" id="surName" required></td></tr>
+                <!-- Input type tel and email found on w3school, adjusted slightly to fit this purpose-->
+                <tr><td>Telefonnr</td><td><input type="tel" pattern="[0-9]{8}" id="telephoneNR" required></td></tr>
+                <tr><td>Epost</td><td><input type="email" id="email" name="email" required></td></tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4">
+        <input type="submit" id="submitButton" onclick="regTicket()">
+        </div>
+    </div>
+
+    <div class="jumbotron text-center">
+        <h2>Alle billetter :)</h2>
+        <table id="output" class="table"></table>
+        <button onclick="delTickets()">Slett alle billettene</button>
+    </div>
+
+</body>
+</html>
