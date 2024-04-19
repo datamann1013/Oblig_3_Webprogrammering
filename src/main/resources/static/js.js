@@ -1,5 +1,5 @@
 function regTicket() {
-     if (checkValues() == true) {
+    if (checkValues() == true) {
          const ticket = {
              filmselector : $("#filmselector").val(),
              amount : $("#amount").val(),
@@ -21,8 +21,8 @@ function regTicket() {
 
 }
 function hentAlle() {
-    $.get( "/hentAlle", function(data) {
-        formaterData(data);
+    $.get( "/hentAlle", function(tickets) {
+        formaterData(tickets);
     });
 }
 function formaterData(data) {
@@ -43,15 +43,19 @@ function delTickets() {
 function checkValues(){
     if($("#firstName").val() == "" || $("#surName").val() == "" || $("#telephoneNR").val() == "" || $("#email").val() == "") {
         alert("Fyll ut alle feltene!");
+        return false;
     }
     if($("#telephoneNR").val().length != 8) {
         alert("Telefonnummeret må ha 8 siffer!");
+        return false;
     }
     if($("#email").val().indexOf("@") == -1) {
         alert("Eposten må ha @!");
+        return false;
     }
     if($("#email").val().indexOf(".") == -1) {
         alert("Eposten må ha punktum!");
+        return false;
     }
     else {
         return true;
