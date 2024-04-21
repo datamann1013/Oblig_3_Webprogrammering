@@ -13,15 +13,19 @@
     </div>
     <div class="row">
         <div class="col-sm-4">
-            <p>Velg film:
-                <select id = "filmselector" required> <!--required makes it mandatory to select a film-->
+            <p>
+            <ul class="list-inline">
+                <li>Velg film:</li>
+                <li><select id = "filmselector" required> <!--required makes it mandatory to select a film-->
                     <!--Options are defined in the html file-->
-                    <option disabled selected hidden>Velg film her</option>
+                    <option id = "1" disabled selected hidden>Velg film her</option>
                     <option>Babyen 1</option>
                     <option>Dune 2</option>
                     <option>Spooderman: Always home</option>
                     <option>DC champions!</option>
-                </select>
+                </select></li>
+                <li> <div id = "filmerror"></div></li>
+            </ul>
             </p>
         </div>
     </div>
@@ -29,8 +33,11 @@
     <div class="row">
         <div class="col-sm-4">
             <p>
-                Antall
-                <input type="number" id="amount" style="width: 3em" min="0" max="99" required>
+            <ul class="list-inline">
+                <li>Antall</li>
+                <li><input type="number" id="amount" style="width: 3em" min="0" max="99" required></li>
+                <li><div id = "amounterror"></div></li>
+            </ul>
             </p>
         </div>
     </div>
@@ -38,11 +45,11 @@
     <div class="row">
         <div class="col-sm-4">
         <table>
-                <tr><td>Fornavn</td><td><input type="text" id="firstName" required></td></tr>
-                <tr><td>Etternavn</td><td><input type="text" id="surName" required></td></tr>
+                <tr><td>Fornavn</td><td><input type="text" id="firstName" required></td><td><div id = "firstError"></div></td></tr>
+                <tr><td>Etternavn</td><td><input type="text" id="surName" required></td><td><div id = "surError"></div></td></tr>
                 <!-- Input type tel and email found on w3school, adjusted slightly to fit this purpose-->
-                <tr><td>Telefonnr</td><td><input type="tel" pattern="[0-9]{8}" id="telephoneNR" required></td></tr>
-                <tr><td>Epost</td><td><input type="email" id="email" name="email" required></td></tr>
+                <tr><td>Telefonnr</td><td><input type="tel" pattern="[0-9]{8}" id="telephoneNR" required></td><td><div id = "phoneError"></div></td></tr>
+                <tr><td>Epost</td><td><input type="email" id="email" name="email" required></td><td><div id = "emailError"></div></td></tr>
             </table>
         </div>
     </div>
@@ -55,7 +62,7 @@
 
     <div class="jumbotron text-center">
         <h2>Alle billetter :)</h2>
-        <table id="output" class="table"></table>
+        <table id="output" class="table table-striped"></table>
         <button onclick="delTickets()">Slett alle billettene</button>
     </div>
 

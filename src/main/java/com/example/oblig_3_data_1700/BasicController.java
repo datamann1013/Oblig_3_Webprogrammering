@@ -28,4 +28,9 @@ public class BasicController {
         rep.slettAlle();
     }
 
+    @GetMapping("/slettEn")
+    public void slettEn(int id){
+        rep.slettEn(id);
+    }
+
 }

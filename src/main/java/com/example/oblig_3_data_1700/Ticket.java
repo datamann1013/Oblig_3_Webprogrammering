@@ -17,6 +17,10 @@ public class Ticket {
         this.telephoneNR = telephoneNR;
         this.email = email;
     }
+    public Ticket (){
+
+    }
+
     @Override
     public String toString() {
         return filmselector + " " + amount + " " + firstName + " " + surName + " " + telephoneNR + " " + email;

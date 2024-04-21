@@ -9,7 +9,7 @@ Fullt navn: Martin Storødegård Rømmesmo
 
 Kort beskrivelse av applikasjon (5-10 setninger): 
     Et billettbestillingssystem med validering av verdier i feltene. 
-    Applikasjonen gir alert/popup boxes ved feil input. 
-    Informasjonen legges så i et array og printes på nettsiden ved hjelp av forms. 
-    Det er også en knapp som nullstiller arrayet slik at billettene slettes og infoen 
+    Applikasjonen gir alert/popup boxes ved feil eller manglende input. 
+    Informasjonen legges så i en H2 database og printes på nettsiden. 
+    Det er også en knapp som nullstiller databasen slik at billettene slettes og infoen 
     på siden slettes og.

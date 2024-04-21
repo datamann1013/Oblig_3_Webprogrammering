@@ -41,24 +41,62 @@ function delTickets() {
     });
 }
 function checkValues(){
-    if($("#firstName").val() == "" || $("#surName").val() == "" || $("#telephoneNR").val() == "" || $("#email").val() == "") {
-        alert("Fyll ut alle feltene!");
-        return false;
-    }
-    if($("#telephoneNR").val().length != 8) {
-        alert("Telefonnummeret må ha 8 siffer!");
-        return false;
-    }
-    if($("#email").val().indexOf("@") == -1) {
-        alert("Eposten må ha @!");
-        return false;
-    }
-    if($("#email").val().indexOf(".") == -1) {
-        alert("Eposten må ha punktum!");
-        return false;
+    let check = true;
+    console.log($("#filmselector").val());
+    if ($("#filmselector").val() === "Velg film her" || $("#filmselector").val() === null){
+        $("div#filmerror").text("Velg en film!");
+        check = false;
     }
     else {
-        return true;
+        $("div#filmerror").text("");
     }
+    if ($("#amount").val() === ""){
+        $("div#amounterror").text("Velg et antall biletter!");
+        check = false;
+    }
+    else {
+        $("div#amounterror").text("");
+    }
+    if ($("#firstName").val() === ""){
+        $("div#firstError").text("Skriv inn et fornavn!");
+        check = false;
+    }
+    else {
+        $("div#firstError").text("");
+    }
+    if ($("#surName").val() === ""){
+        $("div#surError").text("Skriv inn et etternavn!");
+        check = false;
+    }
+    else {
+        $("div#surError").text("");
+    }
+
+    if($("#telephoneNR").val().length !== 8) {
+        $("div#phoneError").text("Telefonnummeret må ha 8 siffer!");
+        check = false;
+    }
+    else {
+        $("div#phoneError").text("");
+    }
+
+    if ($("#email").val().indexOf(".") === -1 || $("#email").val() === "" || $("#email").val().indexOf("@") === -1){
+        if($("#email").val().indexOf(".") === -1) {
+            $("div#emailError").text("Eposten må ha punktum!");
+            check = false;
+        }
+        if($("#email").val().indexOf("@") === -1) {
+            $("div#emailError").text("Eposten må ha @!");
+            check = false;
+        }
+        if  ($("#email").val() === "") {
+            $("div#emailError").text("Skriv inn en epost!");
+        }
+    }
+    else {
+        $("div#emailError").text("");
+    }
+
+    return check;
 
 }
